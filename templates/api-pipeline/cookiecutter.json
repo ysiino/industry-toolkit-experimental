@@ -1,0 +1,14 @@
+{
+    "app_name": "default_app",
+    "project_name": "{{ cookiecutter.app_name }}",
+    "project_slug": "{{ cookiecutter.app_name }}",
+    "project": {
+        "name": "{{ cookiecutter.app_name }}"
+    },
+    "namespace": "myproject",
+    "version": "0.1.0",
+    "typescript": {
+        "namespace": "{{ cookiecutter.namespace }}",
+        "version": "{{ cookiecutter.version }}"
+    }
+}
