@@ -30,8 +30,11 @@ def download_file_as_raw(file_location):
     return requests.get(file_location)
 
 def handler(event, context):
-    files = event['files']
-    template = event['template']
+    
+    body = json.loads(event['body']) if 'body' in event else event
+
+    files = body['files']
+    template = body['template']
     repo_url = template['repo']
     subdir = template.get('subDir', '')
     target_s3 = template.get('target', 's3://' + os.environ['BUCKET_NAME'])
