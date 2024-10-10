@@ -1,0 +1,9 @@
+        repositories {
+            maven {
+                url 'https://' + System.env.CODEARTIFACT_DOMAIN + '-' + System.env.AWS_ACCOUNT_ID + '.d.codeartifact.' + System.env.AWS_REGION + '.amazonaws.com/maven/' + System.env.CODEARTIFACT_REPOSITORY + '/'
+                credentials {
+                    username "aws"
+                    password System.env.CODEARTIFACT_AUTH_TOKEN
+                }
+            }
+        }
