@@ -40,7 +40,7 @@ task generateJavaSdk(type: org.openapitools.generator.gradle.plugin.tasks.Genera
     configOptions = [
          groupId: "{{cookiecutter.java.groupId}}",
          artifactId: "{{cookiecutter.java.artifactId}}",
-         artifactVersion: ""{{cookiecutter.java.artifactVersion}}"",
+         artifactVersion: "{{cookiecutter.java.artifactVersion}}",
     ]
 }
 
