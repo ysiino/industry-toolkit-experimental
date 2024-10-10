@@ -1,0 +1,51 @@
+**/cdk.out/
+
+# Ignore all virtual environments
+venv/
+.venv/
+env/
+.env/
+**/venv/
+**/.venv/
+**/env/
+**/.env/
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+yarn-error.log
+
+# Coverage reports
+coverage
+
+# API keys and secrets
+.env
+
+# Editors
+.idea
+*.iml
+.vscode
+
+dist
+dist/**/*
+
+.DS_Store
+node_modules/
+
+# synthesis directories
+synth
+synthbundle-*
+
+# Yarn Integrity file
+.yarn-integrity
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional eslint cache
+.eslintcache
