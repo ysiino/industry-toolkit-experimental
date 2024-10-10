@@ -10,5 +10,15 @@
     "typescript": {
         "namespace": "{{ cookiecutter.namespace }}",
         "version": "{{ cookiecutter.version }}"
+    },
+    "java": {
+        "package": {
+            "api": "{{ cookiecutter.namespace }}.api",
+            "invoker": "{{ cookiecutter.namespace }}.invoker",
+            "model": "{{ cookiecutter.namespace }}.model"
+        },
+        "groupId": "{{ cookiecutter.namespace }}",
+        "artifactId": "{{ cookiecutter.app_name }}",
+        "artifactVersion": "{{cookiecutter.version }}"
     }
 }
