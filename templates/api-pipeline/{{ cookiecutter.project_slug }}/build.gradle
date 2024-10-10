@@ -30,8 +30,23 @@ task generateTypeScriptSdk(type: org.openapitools.generator.gradle.plugin.tasks.
     ]
 }
 
+task generateJavaSdk(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+    generatorName = 'java'
+    inputSpec = findOpenApiSpecFile()
+    outputDir = "$project.buildDir/generated-sdk/java"
+    apiPackage = "{{cookiecutter.java.package.api}}"
+    invokerPackage = "{{cookiecutter.java.package.invoker}}"
+    modelPackage = "{{cookiecutter.java.package.model}}"
+    configOptions = [
+         groupId: "{{cookiecutter.java.groupId}}",
+         artifactId: "{{cookiecutter.java.artifactId}}",
+         artifactVersion: ""{{cookiecutter.java.artifactVersion}}"",
+    ]
+}
+
 task generateAllSdks {
     dependsOn generateTypeScriptSdk
+    dependsOn generateJavaSdk
 }
 
 build.dependsOn generateAllSdks
