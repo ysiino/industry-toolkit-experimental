@@ -48,6 +48,9 @@ class PipelineBuilderStack(Stack):
                     "pre_build": {
                         "commands": [
                             "aws --version",
+                            "export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ${CODEARTIFACT_DOMAIN} --query authorizationToken --output text`",
+                            "AWS_ACCOUNT_ID=`aws sts get-caller-identity --query Account --output text`",
+                            "BASE_DIR=`pwd`",
                             "UNZIP_DIR=`/usr/bin/uuidgen`"
                         ]
                     },
@@ -65,7 +68,13 @@ class PipelineBuilderStack(Stack):
                             "cp package.json dist/",
                             "cd dist",
                             "aws codeartifact login --tool npm --repository ${CODEARTIFACT_REPOSITORY} --domain ${CODEARTIFACT_DOMAIN}",
-                            "npm publish"
+                            "npm publish",
+                            "cd ${BASE_DIR}/${UNZIP_DIR}/${PROJECT_NAME}",
+                            "cd build/generated-sdk/java",
+                            "chmod +x gradlew",
+                            "sed -i '/publishing {/r ../../../codeartifact-maven-repo.txt' build.gradle",
+                            "./gradlew build",
+                            "./gradlew publish"
                         ]
                     }
                 }
