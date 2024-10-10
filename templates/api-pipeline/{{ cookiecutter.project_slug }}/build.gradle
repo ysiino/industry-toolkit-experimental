@@ -38,9 +38,10 @@ task generateJavaSdk(type: org.openapitools.generator.gradle.plugin.tasks.Genera
     invokerPackage = "{{cookiecutter.java.package.invoker}}"
     modelPackage = "{{cookiecutter.java.package.model}}"
     configOptions = [
-         groupId: "{{cookiecutter.java.groupId}}",
-         artifactId: "{{cookiecutter.java.artifactId}}",
-         artifactVersion: "{{cookiecutter.java.artifactVersion}}",
+        groupId: "{{cookiecutter.java.groupId}}",
+        artifactId: "{{cookiecutter.java.artifactId}}",
+        artifactVersion: "{{cookiecutter.java.artifactVersion}}",
+        disallowAdditionalPropertiesIfNotPresent: "false"
     ]
 }
 
